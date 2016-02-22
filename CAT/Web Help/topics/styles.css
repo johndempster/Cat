@@ -1,0 +1,71 @@
+body {
+  font-family: 'Times New Roman';
+  font-size: 12pt;
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: none;
+  color: Black;
+  background-color: White;
+  text-transform: none;
+}
+p {
+  padding-top: 0pt;
+  padding-right: 0pt;
+  padding-bottom: 0pt;
+  padding-left: 0pt;
+  text-indent: 0pt;
+  text-align: left;
+  line-height: normal;
+  margin: 0px;
+}
+.ts0 {
+  font-family: Arial;
+  font-size: 13pt;
+  font-weight: bold;
+}
+
+.ts2 {
+  color: Black;
+}
+.ts3 {
+  font-weight: bold;
+  color: Black;
+}
+.ts4 {
+  font-size: 11pt;
+  color: Black;
+}
+.ts5 {
+  font-size: 11pt;
+  font-weight: bold;
+  color: Black;
+}
+
+.ts7 {
+  color: Black;
+}
+.ts8 {
+  font-weight: bold;
+  color: Black;
+}
+.ts9 {
+  font-weight: bold;
+}
+.hs0 {
+  text-decoration: underline;
+  color: Blue;
+}
+.ps0 {
+  text-align: justify;
+}
+.ps1 {
+  padding-bottom: 12pt;
+}
+.ps2 {
+  padding-bottom: 12pt;
+  padding-left: 0.6cm;
+  text-indent: -0.6cm;
+}
+.ps3 {
+  padding-bottom: 6pt;
+}

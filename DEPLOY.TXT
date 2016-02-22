@@ -1,0 +1,449 @@
+Deploying Delphi Applications
+-----------------------------
+
+Please read this file before deploying Delphi applications, components,
+or libraries. This file is provided pursuant to the Borland No-Nonsense
+License Statement and provides information on deploying
+
+     1. The Delphi application .EXE file (and any
+        DLLs and DPLs the application requires).
+
+     2. Components and design-time packages.
+
+     3. The Borland Database Engine (BDE).
+
+     4. ActiveX controls (OCXs).
+
+     5. Sample Images.
+
+     6. Local InterBase and multi-user InterBase Server.
+
+     7. Multi-tiered Distributed Application Services (MIDAS).
+
+     8. IntraBuilder trial version applications.
+
+     9. C++Builder trial version applications.
+
+     10. SQL Links support for remote server access.
+
+     11. The Visual Query Builder.
+
+     12. Fractal Image Format (FIF) software.
+
+     13. JPEG compression software.
+
+     14. Data compression library (zlib).
+
+     15. ReportSmith.
+
+     16. Removed or modified "Redistributable" files.
+
+It is recommended that you use InstallShield Express, or another
+Borland-certified install program, to deploy your applications.
+
+
+=======================================================================
+
+
+1. Application deployment (all applications)
+--------------------------------------------
+Delphi applications do not require a runtime interpreter DLL. All you
+have to provide is your .EXE file and any DLLs or DPLs that it calls.
+For simple applications you can distribute a standalone .EXE file. If
+you have used runtime packages with your application, be sure to
+include all required DPLs with the distribution. For applications
+that use the Borland Database Engine, you must use a Borland-certified
+installation/deployment utility, such as InstallShield Express.
+
+If you use InstallShield, treat .DPL (package) files just like other
+DLLs. From the Setup Checklist, open Groups and Files, then click
+Add Group. You can create a group called "Packages" for DPLs; to
+install packages in the Windows\System directory, choose <WINSYSDIR>
+as the destination directory. (We recommend installing .DLL and .DPL
+files in the Windows\System directory.) Then click Launch Explorer
+to select the DPL files you want to deploy.
+
+NOTE: When you deploy applications that use the TCoolBar component,
+make sure that end-users have version 4.70 or later of COMCTL32.DLL.
+Setting the Flat property of TToolBar to True also requires version
+4.70 or later of COMCTL32.DLL. For a list of other components that
+work best with the latest version of COMCTL32.DLL, see README.TXT.
+
+TREGSVR.EXE is fully redistributable.
+
+The Internet Control Pack included with Delphi is copyrighted by
+NetManage and is fully redistributable.
+
+
+2. Components, design-time packages, and runtime packages
+---------------------------------------------------------
+If you distribute Delphi packages to other developers, be sure to
+supply both .DCP and .DPL files. You will probably also want to
+include .DCU files as well as documentation. Package Collection (.DPC)
+files, created with the Package Collection Editor, offer a convenient
+way to distribute all the files associated with a package or group of
+packages.
+
+In accordance with the General Terms That Apply to Compiled Programs
+and Redistributables, you may redistribute Borland-supplied runtime
+packages only for the purpose of executing application programs
+created with Delphi. You may not modify these packages in any way.
+
+  If you are a licensed user of Delphi Client/Server, redistributable
+  runtime packages include the following:
+
+   DSS30.DPL
+   IBEVNT30.DPL
+   INET30.DPL
+   INETDB30.DPL
+   QRPT30.DPL
+   TEE30.DPL
+   TEEDB30.DPL
+   TEEUI30.DPL
+   VCL30.DPL
+   VCLDB30.DPL
+   VCLDBX30.DPL
+   VCLSMP30.DPL
+   VCLX30.DPL
+
+  If you are a licensed user of Delphi Professional, redistributable
+  runtime packages include the following:
+
+   IBEVNT30.DPL
+   QRPT30.DPL
+   TEE30.DPL
+   TEEDB30.DPL
+   TEEUI30.DPL
+   VCL30.DPL
+   VCLDB30.DPL
+   VCLDBX30.DPL
+   VCLSMP30.DPL
+   VCLX30.DPL
+
+  If you are a licensed user of Delphi Standard, redistributable
+  runtime packages include the following:
+
+   QRPT30.DPL
+   VCL30.DPL
+   VCLDB30.DPL
+   VCLDBX30.DPL
+   VCLSMP30.DPL
+   VCLX30.DPL
+
+Although this software may include packages other than those
+listed above, only the packages listed above are redistributable.
+
+You may NOT redeploy Borland-supplied design-time-only packages.
+
+You may not recompile or redistribute any Borland-supplied
+components or libraries for use by other developers.
+
+Packages that you develop may not have the same names as
+Borland-supplied packages. If you distribute component libraries
+or other packages, it is recommended that you avoid using the default
+DCLUSR30 package name, since this will cause naming conflicts with
+other developers.
+
+
+3. BDE deployment (all database applications)
+---------------------------------------------
+
+    Borland Database Engine (BDE) redistributable files
+    ---------------------------------------------------
+    In accordance with the Additional License Terms for Borland
+    Database Engine, you may distribute the Borland Database Engine
+    files with your application using a Borland-certified
+    Redistributable Install program such as InstallShield Express or
+    another compliant install program. You may redistribute only those
+    BDE files selected by the Borland-certified install program.
+
+    Delphi 3 includes InstallShield Express, a certified install
+    program that facilitates proper installation and un-installation of
+    Delphi applications. InstallShield Express helps ensure that your
+    applications co-exist well with other software that uses the
+    BDE, such as dBASE, Paradox, and C++. InstallShield Express also
+    makes it easy to distribute subsets of the Borland Database Engine;
+    this is useful, for example, if you want to distribute an
+    application that uses only dBASE tables, and you don't want to
+    include additional files for Paradox support.
+
+    NOTE: InstallShield Express installs the MS Access driver with the
+    ODBC driver. To deploy Access applications, select the ODBC driver
+    in InstallShield. The Access driver requires installation of the
+    JET engine (DAO 3.0) on the computer where it is deployed.
+
+    NOTE: Do not deploy DB-Lib and CT-Lib with the same application.
+    DB-Lib is for Sybase 4.2 or lower, and CT-Lib is for Sybase
+    System 10 and higher.
+
+    From time to time, Borland may, at its discretion, certify
+    additional installation programs for use as a Borland Certified
+    Install Program for this product. You should visit Borland's
+    Web site (http://www.borland.com/) for the latest information,
+    including the current list (CERTINST.DOC) of Borland Certified
+    Install programs (if any) for this product.
+
+    Deployment of Borland Database Engine files and subsets must be
+    done with a Borland Certified Install Program. We do not otherwise
+    allow deployment of the individual BDE files. There are several
+    important reasons for this:
+
+      o Improper installation of the BDE or BDE subsets can cause other
+        applications using the BDE to fail. Such applications include
+        not only Borland products, but many other programs that use
+        the BDE, such as those built with Borland C++ and Delphi.
+
+      o Windows 95 and Windows NT now have stringent un-install 
+        requirements for MS logo certification.  Un-installation of 
+        BDE components is especially complex, and if not done 
+        correctly will violate logo requirements and can cause 
+        applications to fail.
+
+      o Windows 95 and Windows NT use the registry instead of .INI 
+        files, and making the correct entries and deletions for 
+        install and un-install is also a complex task.
+
+    By working closely with Borland Certified Install Program
+    providers, we can ensure that all the installation, registry,
+    and un-install tasks are handled correctly.
+
+
+4. ActiveX controls (OCXs)
+--------------------------
+Delphi 3 includes ActiveX Controls (OCXs) for use in your applications:
+
+  o Chart FX, copyright SoftwareFX Inc.
+
+  o VisualSpeller Control, copyright Visual Components, Inc.
+
+  o Formula One (spreadsheet), copyright Visual Components, Inc.
+
+  o First Impression (VtChart), copyright Visual Components, Inc.
+
+  o Graph Custom Control, copyright Bits Per Second Ltd.
+
+The version of each of these OCXs shipped with Delphi may be 
+redistributed in custom Delphi applications. Such redistribution 
+is subject to the General Terms That Apply to Compiled Programs and
+Redistributables.
+
+
+5. Sample images
+----------------
+Delphi 3 includes a library of redistributable bitmap images
+normally installed in the subdirectory \IMAGES.
+
+Delphi 3 also includes a database EVENTS.DB with licensed
+images from PhotoDisc. The images in this database are copyright
+PhotoDisc, Inc. 1995 and may not be redistributed.
+
+
+6. Local InterBase and multi-user InterBase Server deployment
+-------------------------------------------------------------
+
+    Applications that use the 32-bit Local InterBase
+    ------------------------------------------------
+    Delphi Client/Server and Delphi Professional include a development
+    license for Local InterBase. They do not, however, include rights
+    for deployment or redistribution of any InterBase component. To
+    deploy InterBase applications, you must purchase Deployment Kits;
+    contact Borland at 1-800-457-9527 for details.
+
+    Applications that use the 32-bit four-user InterBase Server
+    -----------------------------------------------------------
+    Delphi Client/Server contains the 32-bit four-user InterBase
+    Server for Windows 95. (This server also runs under Windows NT.)
+    Purchase of Delphi Client/Server, however, does not include
+    deployment or redistribution rights for any InterBase Server
+    files. Customers who wish to deploy InterBase Server
+    applications must separately purchase individual copies of the
+    InterBase Server; contact Borland at 1-800-457-9527 for details.
+
+    Applications that use the 16-bit Local InterBase
+    ------------------------------------------------
+    Delphi Client/Server is shipped with the 16-bit version of Delphi
+    1.0, which includes a copy of the 16-bit Local InterBase and
+    deployment rights for that software. For information about
+    deployment of the 16-bit Local InterBase, refer to Section 4b
+    of the DEPLOY.TXT file for Delphi 1.0.
+
+
+7. Multi-tiered Distributed Application Services
+------------------------------------------------
+Delphi Client/Server includes a development license for the
+Multi-tiered Distributed Application Services Suite (MIDAS).
+MIDAS comprises the Business ObjectBroker, OLEnterprise,
+the Remote DataBroker, and the ConstraintBroker Manager
+(SQL Explorer). Purchase of Delphi Client/Server, however,
+does not include deployment rights for this software.
+Customers who wish to deploy applications that use MIDAS
+must purchase a separate license for each server on which
+MIDAS is installed.
+
+A server deployment license is not required for deploying 
+IDPROV32.DLL or DBCLIENT.DLL in an application in which the
+client and server reside on the same machine. These two
+files are the Client Dataset Redistributables referred to
+in the License Statement.
+
+For more information, see Borland's World Wide Web site
+(http://www.borland.com/midas/) or contact your local Borland
+sales office. For a list of files and components in MIDAS, see
+http://www.borland.com/midas/papers/components.html.
+
+
+8. IntraBuilder trial version applications
+------------------------------------------
+The Delphi CD includes a trial version of the IntraBuilder Web
+application development tool. Purchase of Delphi, however, does
+not include distribution rights for applications developed with
+IntraBuilder. If you wish to deploy IntraBuilder applications,
+you must purchase a separate license. Contact your local
+Borland sales office for details.
+
+
+9. C++Builder trial version applications
+----------------------------------------
+The Delphi CD includes a trial version of C++Builder, Borland's
+rapid application development tool for C++. Purchase of Delphi,
+however, does not include distribution rights for applications
+developed with C++Builder. If you wish to deploy C++Builder
+applications, you must purchase a separate license. Contact
+your local Borland sales office for details.
+
+
+10. SQL Links deployment (client/server applications)
+-----------------------------------------------------
+When deploying an application that uses SQL Links for Interbase,
+you must install MSVCRT.DLL in the Windows system directory of
+the target machine.
+
+In addition to the SQL Links files, client/server applications
+require client files for interface to communication protocols
+such as TCP/IP. Refer to your server documentation.
+
+    Redistributables for SQL Link Software
+    --------------------------------------
+    Licensed, registered users of Delphi Client/Server may redistribute
+    the files listed below ("SQL Link Software Redistributables") with
+    programs created using this product, subject to all of the terms
+    and conditions of the Additional License Terms for Borland Database
+    Engine. The SQL Link Software Redistributables may be redistributed
+    only for the purpose of executing end-user SQL Link Software
+    applications created with Delphi Client/Server. Although SQL Link
+    Software applications developed with Delphi Client/Server may be
+    redistributed to an unlimited number of servers for end-users, you
+    may not redistribute or otherwise share the SQL Link Software with
+    other developers for creating SQL Link Software applications.
+
+    THE SQL LINK SOFTWARE REDISTRIBUTABLES CONTAINED IN THIS PRODUCT
+    MAY NOT BE USED BY ANYONE OTHER THAN THE INDIVIDUAL WHO IS THE
+    LICENSED USER (OR "NAMED USER", IN THE CASE OF AN ENTITY) FOR
+    CREATING SQL LINK SOFTWARE APPLICATIONS.
+
+    You may redistribute the following files in accordance with the
+    License Statement for this product:
+
+        Oracle
+        ----------------------------------------------
+        SQLORA32.DLL    Oracle SQL Link driver
+        SQL_ORA.CNF     Default BDE configuration file
+                        for ORA SQL Link
+
+        Sybase Db-Lib
+        ----------------------------------------------
+        SQLSYB32.DLL    Sybase Db-Lib SQL Link driver
+        SQL_SYB.CNF     Default BDE configuration file
+                        for SYB Db-Lib SQL Link
+
+        Sybase Ct-Lib
+        ----------------------------------------------
+        SQLSSC32.DLL    Sybase Ct-Lib SQL Link driver
+        SQL_SSC.CNF     Default BDE configuration file
+                        for SYB Ct-Lib SQL Link
+
+        Microsoft SQL Server
+        ----------------------------------------------
+        SQLMSS32.DLL    Microsoft SQL Server SQL Link
+        SQL_MSS.CNF     Default BDE configuration file
+                        for MSS SQL Link
+
+        Informix
+        ----------------------------------------------
+        SQLINF32.DLL    Informix SQL Link
+        SQL_INF.CNF     Default BDE configuration file
+                        for INF SQL Link
+
+        DB/2
+        ----------------------------------------------
+        SQLDB232.DLL    DB/2 SQL Link
+        SQL_DB2.CNF     Default BDE configuration file
+                        for DB/2 SQL Link
+
+        InterBase
+        ----------------------------------------------
+        SQLINT32.DLL    InterBase SQL Link driver
+        SQL_INT.CNF     Default BDE configuration file
+                        for INT SQL Link
+
+    For Borland Database Engine (BDE) redistributable files, see the
+    "Borland Database Engine (BDE) Redistributable Files" section above.
+
+
+11. The Visual Query Builder
+----------------------------
+The Visual Query Builder included with Delphi Client/Server is not
+redistributable. However, you may contact Integra Technology at
+(206) 637-5600 for licensing information. The Visual Query Builder
+is copyrighted by Integra Technology International, Inc.
+
+
+12. Fractal Image Format (FIF) software
+---------------------------------------
+The Delphi CD includes software for decoding and display of images
+compressed in Iterated Systems' Fractal Image Format (FIF). This
+software is copyrighted by Iterated Systems, Inc. and may be deployed
+or redistributed subject to the terms in Iterated Systems' licensing
+agreement and other accompanying documentation.
+
+
+13. JPEG compression software
+-----------------------------
+The Delphi CD includes software for JPEG image compression and
+decompression. This software and its source code are distributed
+by the Independent JPEG Group and copyrighted by Thomas G. Lane.
+For conditions of distribution and use, see the README file that
+accompanies the software.
+
+
+14. Data compression library (zlib)
+-----------------------------------
+The Delphi CD includes zlib data compression software. This software
+and its source code are copyrighted by Mark Adler and others and may
+be used and distributed subject to the conditions specified in the
+file zlib.h.
+
+
+15. ReportSmith
+---------------
+The TReport component is included with Delphi 3 for compatibility
+with older versions of Delphi only. To use TReport in applications,
+you must have the ReportSmith runtime.
+
+
+16. Removed or modified "Redistributable" files
+-----------------------------------------------
+BORLAND RESERVES THE RIGHT TO REMOVE OR MODIFY INDIVIDUAL
+REDISTRIBUTABLE FILES FROM THIS BORLAND SOFTWARE PRODUCT, AT ANY
+TIME PRIOR TO RELEASE OF THE PRODUCT, REGARDLESS OF WHETHER SUCH
+FILES CONTINUE TO BE LISTED AS "REDISTRIBUTABLE" UPON RELEASE OF
+THE PRODUCT.  BORLAND SHALL HAVE NO OBLIGATION WHATSOEVER IN
+CONNECTION WITH ANY FILE WHICH IS LISTED AS "REDISTRIBUTABLE" BUT
+HAS BEEN REMOVED FROM THE PRODUCT PRIOR TO THE PRODUCT'S RELEASE.
+
+----------------------------------------------------------------------
+
+    Unless otherwise noted, all materials provided in this release
+    are Copyright 1983 - 1997 by Borland International.
+
+------------------------------- END ----------------------------------
